@@ -34,6 +34,7 @@ jobs:
         # Docker hub image repository name
         image: aparnabhure/demo_cache_eviction
         registry: docker.io
+        dockerfile: ./Dockerfile
         # Created secrets in github repository settings->secretes
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
