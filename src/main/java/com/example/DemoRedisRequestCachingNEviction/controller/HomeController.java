@@ -1,9 +1,10 @@
 package com.example.DemoRedisRequestCachingNEviction.controller;
 
-import com.example.DemoRedisRequestCachingNEviction.RequestResponse;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,8 @@ import java.util.Set;
 
 @Controller
 @RequestMapping("/demo_cache")
+@OpenAPIDefinition(info = @Info(title = "Demo Cache Home Controller", version = "1.0", description = "Basic Cache Testing API"))
+@Tag(name = "DEMO_CACHE")
 public class HomeController {
     //NOTES: For generic Key it has to be declared as public static final
     /**
@@ -93,14 +96,5 @@ public class HomeController {
         sets.add(text);
         userStringsMap.put(userId, sets);
         return "Text updated";
-    }
-
-    @GetMapping(value = "/getDto")
-    @ResponseBody
-    public RequestResponse getDTO(){
-        RequestResponse requestResponse = new RequestResponse();
-        requestResponse.setMessage("Got DTO");
-        requestResponse.setStatus(HttpStatus.OK);
-        return requestResponse;
     }
 }
