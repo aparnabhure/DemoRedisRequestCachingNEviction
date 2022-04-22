@@ -7,3 +7,6 @@ For testing installed local redis and ran >redis-server command to have local re
 
 Swagger JSON API:
 http://localhost:8080/swagger-ui.html
+
+To test redis connection error,
+try to disconnect redis after running the service
